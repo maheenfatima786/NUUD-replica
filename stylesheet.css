@@ -501,8 +501,6 @@
   max-width: 260px;}
 
 
-
-
     .water-section {
       padding: 80px 20px;
       background: #f8f7f2 url('img/form.png') center/cover no-repeat;
@@ -698,10 +696,6 @@
       .water-section { padding: 40px 20px; }
       .water-section__inner { justify-content: center; }
       .water-section__form-box { padding: 36px 24px; max-width: 100%; }
-
-      .footer__blocks { flex-direction: column; }
-      .footer__block--logo { flex: unset; }
-      .footer__block--subscribe { flex: unset; }
     }
 
     @media (max-width: 600px) {
@@ -738,3 +732,91 @@
     font-size: 13px;
   }
 }
+@media (max-width: 768px) {
+  footer {
+    padding: 36px 35px 20px;
+    min-height: unset;
+  }
+  .footer__block--legal { flex: 0 0 100%; }
+   .footer__block--legal .footer__block-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+  }
+
+  .footer__block--legal .footer__block-heading::after {
+    content: "⌄";
+    font-size: 20px;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+
+  .footer__block--legal.open .footer__block-heading::after {
+    transform: rotate(180deg);
+  }
+
+  .footer__block--legal .footer__menu {
+    display: none;
+  }
+
+  .footer__block--legal.open .footer__menu {
+    display: flex;
+  }
+   .footer__blocks {
+    flex-wrap: wrap;
+    gap: 0;
+    padding-left: 0;
+    margin-bottom: 20px;
+  }
+
+  /* Logo block — full width row */
+  .footer__block--logo {
+    flex: 0 0 100%;
+    margin-bottom: 28px;
+  }
+
+  .footer__logo {
+    height: 60px;
+    margin-top: 0;
+  }
+
+  .footer__socials {
+    margin-top: 0;
+    gap: 18px;
+  }
+
+  .footer__socials a svg {
+    width: 13px;
+    height:13px;
+  }
+
+  /* Company & Shop — side by side, each 50% */
+  .footer__block:not(.footer__block--logo):not(.footer__block--subscribe):not(.footer__block--legal) {
+    flex: 0 0 50%;
+    margin-bottom: 28px;
+  }
+
+ 
+  /* Subscribe — full width */
+  .footer__block--subscribe {
+    flex: 0 0 100%;
+    padding-left: 0;
+  }
+
+  .footer__block--subscribe .footer__block-heading {
+    font-size: 16px;
+    margin-bottom: 18px;
+  }
+
+  .footer__subscribe-input,
+  .footer__subscribe-btn {
+    width: 60%;
+    box-sizing: border-box;
+  }
+
+}
+
+ 

@@ -347,7 +347,7 @@
         </div>
 
    
-        <div class="footer__block">
+        <div class="footer__block footer__block--legal">
           <div class="footer__block-heading">Legal</div>
           <ul class="footer__menu">
             <li><a href="#">Refund Policy</a></li>
@@ -372,8 +372,14 @@
     </div>
   </footer>
 
-  
+
  <script>
+  document.getElementById('hamburgerBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('open');
+    });
+    document.getElementById('mobileMenuClose').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
   function updateCountdown() {
   const timer = document.querySelector(".countdown-timer");
 
@@ -414,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       mainImg.src = imgSrc;
 
-      mainImg.onerror = () => {
+      mainImg.onerror = () => { 
         mainImg.src = fallback;
       };
 
@@ -426,6 +432,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+  const legalBlock = document.querySelector('.footer__block--legal');
+  legalBlock.querySelector('.footer__block-heading').addEventListener('click', function () {
+    legalBlock.classList.toggle('open');
+  });
+
 
 </script>
 </body>
