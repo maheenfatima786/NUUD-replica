@@ -633,7 +633,15 @@ width:50%;
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
     font-family: Arial, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65);
   }
+.slide-overlay {
+  pointer-events: none;   /* allow clicks to pass through */
+}
 
+.play-btn,
+.mute-btn {
+  pointer-events: auto;   /* keep buttons clickable */
+  cursor: pointer;
+}
 
 
   .swiper-slide:hover .slide-overlay { opacity: 1; }
