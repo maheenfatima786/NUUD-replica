@@ -669,6 +669,9 @@ width:50%;
   object-fit: cover;
   object-position: center;
   display: block;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
 }
 
 .video-controls {
@@ -691,7 +694,6 @@ width:50%;
   @media (max-width: 640px) {
     .ts { padding: 28px 20px 36px; }
     .ts-title { font-size: 24px; }
-    .swiper-slide { width: 210px !important; height: 280px; }
     .swiper-pagination {
   display: flex;
   justify-content: center;
@@ -714,6 +716,9 @@ width:50%;
   height: 6px !important;
   border-radius: 50% !important;
   background: #7d7d7d !important;
+}
+.swiper-slide{
+  height: 280px;
 }
   }
   @media (max-width: 768px) {
@@ -742,6 +747,10 @@ width:50%;
   .nav-arrows{
     display:none;
   }
+  .video-controls img {
+  width: 30px;
+  height: 30px;
+}
 }
 
 @media (max-width: 480px) {

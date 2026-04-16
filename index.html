@@ -612,21 +612,45 @@ function resetHiddenVideos() {
   const playBtn = slide.querySelector('.play-btn');
   const muteBtn = slide.querySelector('.mute-btn');
 
-  playBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // prevent swiper drag conflict
+  // ✅ ADD THIS — click anywhere on the video to play/pause
+  video.addEventListener('click', (e) => {
+    e.stopPropagation();
 
     // pause all other videos
     document.querySelectorAll('.video-slide video').forEach(v => {
-      if (v !== video) v.pause();
+      if (v !== video) {
+        v.pause();
+      }
     });
 
-    // reset all icons
+    // reset all other play icons
     document.querySelectorAll('.play-btn').forEach(btn => {
       btn.src = "play.svg";
     });
 
     if (video.paused) {
-      video.muted = false;   // ✅ FORCE unmute FIRST
+      video.muted = false;
+      video.play();
+      playBtn.src = "pause.svg";
+    } else {
+      video.pause();
+      playBtn.src = "play.svg";
+    }
+  });
+
+  playBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    document.querySelectorAll('.video-slide video').forEach(v => {
+      if (v !== video) v.pause();
+    });
+
+    document.querySelectorAll('.play-btn').forEach(btn => {
+      btn.src = "play.svg";
+    });
+
+    if (video.paused) {
+      video.muted = false;
       video.play();
       playBtn.src = "pause.svg";
     } else {
@@ -637,12 +661,10 @@ function resetHiddenVideos() {
 
   muteBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-
     video.muted = !video.muted;
     muteBtn.src = video.muted ? "mute.svg" : "speaker.svg";
   });
 });
-
   setTimeout(updateBar, 100);
 </script>
 </body>
