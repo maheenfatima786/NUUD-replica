@@ -634,12 +634,12 @@ width:50%;
     font-family: Arial, sans-serif; font-size: 13px; color: rgba(255,255,255,0.65);
   }
 .slide-overlay {
-  pointer-events: none;   /* allow clicks to pass through */
+  pointer-events: none;
 }
 
 .play-btn,
 .mute-btn {
-  pointer-events: auto;   /* keep buttons clickable */
+  pointer-events: auto; 
   cursor: pointer;
 }
 
@@ -731,6 +731,10 @@ width:50%;
   }
   @media (max-width: 768px) {
 
+
+  .swiper-container-wrap {
+    overflow: visible;
+  }
   .testimonial_content {
     flex-direction: column;
     align-items: flex-start;
